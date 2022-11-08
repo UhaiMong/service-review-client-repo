@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Authprovider/Authprovider';
 
 const Login = () => {
+    const { login } = useContext(AuthContext);
+    const handleToLogin = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        login(email,password)
+            .then(result => {
+                console.log(result.user);
+                form.reset();
+            })
+            .catch(error => console.error(error))
+
+    }
     return (
 
         <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
@@ -9,7 +24,7 @@ const Login = () => {
                 <h1 className="text-2xl font-bold sm:text-3xl">Login</h1>
             </div>
 
-            <form className="mx-auto mt-8 mb-0 max-w-md space-y-4">
+            <form onSubmit={handleToLogin} className="mx-auto mt-8 mb-0 max-w-md space-y-4">
                 <div>
                     <label className="sr-only">Email</label>
 
@@ -61,7 +76,7 @@ const Login = () => {
                                 <path
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
-                                    strokewidth="2"
+                                    strokeWidth="2"
                                     d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                                 />
                                 <path
