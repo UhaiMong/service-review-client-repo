@@ -13,7 +13,7 @@ const Services = () => {
             <div className="mt-2">
                 <dl>
                     <div>
-                        <dt className="sr-only">Price</dt>
+                        <p className='text-2xl font-medium text-gray-500'>price</p>
                     </div>
 
                     <div>

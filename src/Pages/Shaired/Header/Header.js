@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/icon/icon.png';
+import { AuthContext } from '../../../Authprovider/Authprovider';
 
 const Header = () => {
+    const { user,logout } = useContext(AuthContext);
+    const handleToLogout = () => {
+        logout()
+            .then(result => {
+                const user = result.user;
+                alert(`${user?.email} is successfully logged out.`);
+            })
+            .catch(error => console.error(error))
+    }
     const menuItems = <>
         <li className="flex items-center gap-6 text-sm">
             <Link to='/' className="text-gray-500 transition hover:text-gray-500/75">Home</Link>
@@ -28,19 +38,34 @@ const Header = () => {
 
                     <div className="flex items-center">
                         <div className="flex gap-4">
-                            <div>
-                                <Link to='/login'
-                                    className="rounded-md bg-teal-600 px-3 py-2 text-sm font-medium text-white shadow">
-                                    Login
-                                </Link>
-                            </div>
+                            {
+                                user?.uid ?
+                                    <div>
+                                        <Link
+                                            to='/'
+                                            className="rounded-md bg-teal-600 px-3 py-2 text-sm font-medium text-white shadow"
+                                            onClick={handleToLogout}
+                                        >
+                                            Logout
+                                        </Link>
+                                    </div>
+                                    :
+                                    <>
+                                        <div>
+                                            <Link to='/login'
+                                                className="rounded-md bg-teal-600 px-3 py-2 text-sm font-medium text-white shadow">
+                                                Login
+                                            </Link>
+                                        </div>
 
-                            <div>
-                                <Link to='/signup'
-                                    className="rounded-md bg-gray-100 px-3 py-2 text-sm font-medium text-teal-600">
-                                    Register
-                                </Link>
-                            </div>
+                                        <div>
+                                            <Link to='/signup'
+                                                className="rounded-md bg-gray-100 px-3 py-2 text-sm font-medium text-teal-600">
+                                                Register
+                                            </Link>
+                                        </div>
+                                    </>
+                            }
                         </div>
 
                     </div>
