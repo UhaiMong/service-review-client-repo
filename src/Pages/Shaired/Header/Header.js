@@ -7,6 +7,7 @@ const Header = () => {
         <li className="flex items-center gap-6 text-sm">
             <Link to='/' className="text-gray-500 transition hover:text-gray-500/75">Home</Link>
             <Link to='/blog' className="text-gray-500 transition hover:text-gray-500/75">Blog</Link>
+            <Link to='/review' className="text-gray-500 transition hover:text-gray-500/75">My review</Link>
         </li>
     </>
     return (
