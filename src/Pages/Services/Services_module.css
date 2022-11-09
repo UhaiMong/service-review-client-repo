@@ -1,0 +1,12 @@
+.pagination{
+    margin-bottom: 50px;
+}
+.pagination button{
+    margin-right: 13px;
+}
+.pagination .selectedPage{
+    background-color: #0f6d0f7d;
+    border: 1px solid chocolate;
+    font-weight: bold;
+    width: 60px;
+}

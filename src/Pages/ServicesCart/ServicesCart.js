@@ -30,7 +30,7 @@ const ServicesCart = ({ service }) => {
                 </div>
 
                 <div>
-                    <dd className="font-medium text-4xl">{name}</dd>
+                    <dd className="font-medium text-2xl lg:text-4xl">{name}</dd>
                     <p>{description.slice(0, 100)} [...]</p>
                 </div>
             </div>
