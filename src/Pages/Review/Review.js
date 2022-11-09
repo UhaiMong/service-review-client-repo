@@ -15,7 +15,11 @@ const Review = () => {
     }, [user?.email])
     return (
         <div>
-            <h1 className='text-4xl text-center font-semibold text-gray-500'>My total review : {reviews.length}</h1>
+            {
+                reviews.length <= 0 ? <h1 className='text-4xl text-center font-semibold text-gray-500'>There are no service to review</h1>
+                    :
+                    <h1 className='text-4xl text-center font-semibold text-gray-500'>My total review : {reviews.length}</h1>
+            }
             {
                 reviews.map(review => <CustomerReview
                     key={review.serviceId}

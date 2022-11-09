@@ -1,10 +1,27 @@
 import React from 'react';
 
 const CustomerReview = ({ review }) => {
-    const { name, description, url } = review;
+    const { _id, name, description, url } = review;
+
+    const handleToDelete = review => {
+        const agree = window.confirm(`Do you want to delete ${name} review?`);
+        if (agree) {
+            fetch(`http://localhost:5000/review/${_id}`, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.deletedCount > 0) {
+                        alert("successfully deleted.");
+                    }
+                })
+        }
+    }
     return (
         <div className="relative rounded-lg border border-gray-200 shadow-lg my-5">
             <button
+                onClick={()=>handleToDelete(review)}
                 className="absolute -top-1 -right-1 rounded-full border border-gray-300 bg-gray-100 p-1"
             >
                 <span className="sr-only">Close</span>

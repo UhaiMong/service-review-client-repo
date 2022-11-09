@@ -3,13 +3,12 @@ import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Authprovider/Authprovider';
 
 const AddReview = () => {
-    const { _id } = useLoaderData();
-    // const { user } = useContext(AuthContext);
+    const { _id, name } = useLoaderData();
+    const { user } = useContext(AuthContext);
     const handleToSubmitForm = event => {
         event.preventDefault();
         const form = event.target;
-        const name = form.name.value;
-        const email = form.email.value;
+        const email = user?.email || "Unknown";
         const url = form.url.value;
         const ratting = form.ratting.value;
         const description = form.description.value;
@@ -53,14 +52,14 @@ const AddReview = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input name='email' required type="email" placeholder="Email" className="input input-bordered" />
+                            <input name='email' required type="email" placeholder="Email" defaultValue={user?.email} readOnly className="input input-bordered" />
                         </div>
 
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input name='name' required type="text" placeholder="Name" className="input input-bordered" />
+                            <input name='name' required type="text" placeholder="Name" defaultValue={name} readOnly className="input input-bordered" />
                         </div>
 
                         <div className="form-control">
