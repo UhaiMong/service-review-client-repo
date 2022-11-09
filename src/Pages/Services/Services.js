@@ -49,7 +49,7 @@ const Services = () => {
                             onClick={() => setPage(number)}
                             className={page === number && 'selectedPage'}
                         >
-                            {number}
+                            {number+1}
                         </button>)
                     }
 
@@ -57,7 +57,9 @@ const Services = () => {
                 <Link to='/allservice'>
                     <button className="btn btn-outline btn-success mr-6 capitalize">See all</button>
                 </Link>
-                <button className="btn btn-outline btn-warning capitalize">Add service</button>
+                <Link to='/addservices'>
+                    <button className="btn btn-outline btn-warning capitalize">Add service</button>
+                </Link>
             </div>
         </div>
 

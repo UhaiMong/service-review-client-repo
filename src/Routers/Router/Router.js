@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
 import Error404 from "../../Pages/404/Error404";
+import AddServices from "../../Pages/AddServices/AddServices";
 import AllService from "../../Pages/AllService/AllService";
 import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home";
@@ -8,6 +9,7 @@ import Login from "../../Pages/Login/Login";
 import Review from "../../Pages/Review/Review";
 import ServiceDetailsById from "../../Pages/Services/ServiceDetailsById/ServiceDetailsById";
 import Signup from "../../Pages/Signup/Signup";
+import Privaterout from "../Privaterout/Privaterout";
 
 export const routers = createBrowserRouter([
     {
@@ -28,11 +30,15 @@ export const routers = createBrowserRouter([
             },
             {
                 path: '/review',
-                element: <Review></Review>
+                element: <Privaterout><Review></Review></Privaterout>
             },
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/addservices',
+                element: <Privaterout> <AddServices></AddServices> </Privaterout>
             },
             {
                 path: '/allservice',
