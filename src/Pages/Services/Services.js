@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ServicesCart from '../ServicesCart/ServicesCart';
 import './Services_module.css'
 
 const Services = () => {
     const [services, setServices] = useState([]);
-    const [count,setCount] = useState(0)
+    const [count, setCount] = useState(0)
     const [page, setPage] = useState(0);
     const [size, setSize] = useState(3);
 
@@ -41,19 +42,21 @@ const Services = () => {
                 }
             </div>
             <div className='mx-auto text-center'>
-                    <div className='pagination'>
-                        {
-                            [...Array(pages).keys()].map(number => <button
-                                key={number}
-                                onClick={()=>setPage(number)}
-                                className={page === number &&'selectedPage'}
-                            >
-                                {number}
-                            </button>)
-                        }
-                        
-                    </div>
-                <button className="btn btn-outline btn-success mr-6 capitalize">See all</button>
+                <div className='pagination'>
+                    {
+                        [...Array(pages).keys()].map(number => <button
+                            key={number}
+                            onClick={() => setPage(number)}
+                            className={page === number && 'selectedPage'}
+                        >
+                            {number}
+                        </button>)
+                    }
+
+                </div>
+                <Link to='/allservice'>
+                    <button className="btn btn-outline btn-success mr-6 capitalize">See all</button>
+                </Link>
                 <button className="btn btn-outline btn-warning capitalize">Add service</button>
             </div>
         </div>
