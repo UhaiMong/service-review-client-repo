@@ -48,10 +48,10 @@ const AllService = () => {
 
                             <div className="sm:inline-flex sm:shrink-0 sm:items-center">
                                 <Link
-                                    className="inline-flex items-center rounded border border-indigo-600 px-8 py-3 text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500"
+                                    className="inline-flex items-center rounded border border-indigo-600 px-8 py-3 text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500 mb-4"
                                     to={`/services/${service._id}`}
                                 >
-                                    <span className="text-sm font-medium"> Details </span>
+                                    <span className="text-sm font-medium">See Review </span>
                                 </Link>
                             </div>
                         </div>

@@ -1,9 +1,10 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const ServiceDetailsById = () => {
+
+
     const service = useLoaderData();
-    const { name, price, description,img } = service;
+    const { _id, name, price, description, img } = service;
     return (
         <div
             className="relative block rounded-xl border border-gray-100 p-8 shadow-xl w-full md:w-2/4 mx-auto"
@@ -21,8 +22,12 @@ const ServiceDetailsById = () => {
 
                 <p className="mt-2 text-sm">
                    {description}
-                </p><hr/>
-                <button className='mt-5 btn btn-outline btn-success'>Order Now</button>
+                </p><br/><hr /><br/>
+                
+                <Link to={`/addreview/${_id}`}>
+                    <button className='mt-5 btn btn-outline btn-success capitalize'>Review Now</button>
+                </Link>
+
             </div>
         </div>
 
