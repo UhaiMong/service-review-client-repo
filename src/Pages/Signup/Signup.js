@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Authprovider/Authprovider';
 
 const Signup = () => {
-    const { createUser,user } = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
     const handleToSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
-        const name = form.name.value;
+        // const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         createUser(email,password)

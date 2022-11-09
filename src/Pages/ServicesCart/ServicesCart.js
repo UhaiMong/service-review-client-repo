@@ -43,7 +43,7 @@ const ServicesCart = ({ service }) => {
                 <div className="sm:inline-flex sm:shrink-0 sm:items-center">
                     <Link
                         className="inline-flex items-center rounded border border-indigo-600 px-8 py-3 text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500"
-                        to="/details"
+                        to={`/services/${_id}`}
                     >
                         <span className="text-sm font-medium"> Details </span>
                     </Link>
