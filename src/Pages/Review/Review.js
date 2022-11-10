@@ -6,7 +6,6 @@ const Review = () => {
 
     const [reviews, setReviews] = useState([])
     const { user } = useContext(AuthContext);
-    console.log(reviews);
 
     useEffect(() => {
         fetch(`http://localhost:5000/reviewers?email=${user?.email}`)
@@ -24,6 +23,7 @@ const Review = () => {
                 reviews.map(review => <CustomerReview
                     key={review.serviceId}
                     review={review}
+                    reviews={reviews}
                 ></CustomerReview>)
             }
         </div>

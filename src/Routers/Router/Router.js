@@ -10,6 +10,7 @@ import Login from "../../Pages/Login/Login";
 import Review from "../../Pages/Review/Review";
 import ServiceDetailsById from "../../Pages/Services/ServiceDetailsById/ServiceDetailsById";
 import Signup from "../../Pages/Signup/Signup";
+import UpdateReview from "../../Pages/UpdateReview/UpdateReview";
 import Privaterout from "../Privaterout/Privaterout";
 
 export const routers = createBrowserRouter([
@@ -19,11 +20,11 @@ export const routers = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element:<Home></Home>
+                element: <Home></Home>
             },
             {
                 path: '/login',
-                element:<Login></Login>
+                element: <Login></Login>
             },
             {
                 path: '/signup',
@@ -45,6 +46,11 @@ export const routers = createBrowserRouter([
                 path: '/addreview/:id',
                 element: <Privaterout><AddReview></AddReview></Privaterout>,
                 loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
+            },
+            {
+                path: '/update/:id',
+                element: <UpdateReview></UpdateReview>,
+                loader: ({ params }) => fetch(`http://localhost:5000/update/${params.id}`)
             },
             {
                 path: '/allservice',

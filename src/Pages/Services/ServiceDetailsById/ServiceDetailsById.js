@@ -16,7 +16,7 @@ const ServiceDetailsById = () => {
             </span>
 
             <div className="mt-4 text-gray-500 sm:pr-8">
-                <img classNameName='cover' src={img} alt="" />
+                <img className='cover' src={img} alt="" />
 
                 <h3 className="mt-4 text-xl font-bold text-gray-900">{name}</h3>
 
