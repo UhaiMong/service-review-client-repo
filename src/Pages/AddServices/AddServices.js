@@ -3,7 +3,7 @@ import { AuthContext } from '../../Authprovider/Authprovider';
 import useTitle from '../Hook/useTitle';
 
 const AddServices = () => {
-    useTitle("Update Review")
+    useTitle("Add Service")
     const { user } = useContext(AuthContext);
 
     // const oldReview = useLoaderData();
@@ -11,27 +11,30 @@ const AddServices = () => {
 
     const handleAddUser = event => {
         event.preventDefault();
-        // fetch(`https://service-review-server-psi.vercel.app/update/${oldReview._id}`, {
-        //     method: 'PUT',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(review)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data.modifiedCount > 0) {
-        //             console.log(data)
-        //         }
-        //     })
-
-    }
-    const handleAddServiceInput = event => {
-        // const field = event.target.name;
-        // const value = event.target.value;
-        // const newReview = { ...review };
-        // newReview[field] = value;
-        // setReview(newReview);
+        const form = event.target;
+        const name = form.name.value;
+        const img = form.url.value;
+        const description = form.description.value;
+        const ratting = form.ratting.value;
+        const price = form.price.value;
+        const ZeroOneData = { name, img, description, ratting, price };
+        console.log(ZeroOneData);
+        fetch('https://service-review-server-psi.vercel.app/services', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(ZeroOneData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    alert("Successfully added a service.");
+                }
+                form.reset()
+            })
+            .catch(error => console.error(error))
 
     }
     return (
@@ -46,21 +49,21 @@ const AddServices = () => {
                             <label className="label">
                                 <span className="label-text">Title</span>
                             </label>
-                            <input onChange={handleAddServiceInput} name='name' required type="text" placeholder="Title" className="input input-bordered" />
+                            <input name='name' required type="text" placeholder="Title" className="input input-bordered" />
                         </div>
 
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">PhotoURL</span>
                             </label>
-                            <input onChange={handleAddServiceInput} name='url' required type="url" placeholder="PhotoURL" className="input input-bordered" />
+                            <input name='url' required type="url" placeholder="PhotoURL" className="input input-bordered" />
                         </div>
 
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Price</span>
                             </label>
-                            <input onChange={handleAddServiceInput}
+                            <input
 
                                 name='price' required type="number" placeholder="Price" className="input input-bordered" />
                         </div>
@@ -69,7 +72,7 @@ const AddServices = () => {
                             <label className="label">
                                 <span className="label-text">Ratting</span>
                             </label>
-                            <input onChange={handleAddServiceInput}
+                            <input
                                 name='ratting' required type="number" placeholder="Ratting: 0 - 5 star" className="input input-bordered" />
                         </div>
 
@@ -77,7 +80,7 @@ const AddServices = () => {
                             <label className="label">
                                 <span className="label-text">Short Description</span>
                             </label>
-                            <textarea onChange={handleAddServiceInput}
+                            <textarea
                                 name='description' required className="textarea textarea-success" placeholder="A short description"></textarea>
                         </div>
 
