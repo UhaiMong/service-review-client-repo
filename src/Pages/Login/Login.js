@@ -6,20 +6,48 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
-    const { login } = useContext(AuthContext);
+    const { login, signInWithGoogle } = useContext(AuthContext);
     const handleToLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        login(email,password)
+        login(email, password)
             .then(result => {
+                const user = result.user;
                 console.log(result.user);
-                form.reset();
-                navigate(from, { replace: true });
+                
+                const recentUser = {
+                    email: user.email
+                }
+                console.log(recentUser);
+
+                // jwt token
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(recentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('review-token', data.token);
+                        navigate(from, { replace: true });
+                        // form.reset();
+                })
             })
             .catch(error => console.error(error))
 
+    }
+    const loginWithGoogle = () => {
+        signInWithGoogle()
+            .then(result => {
+                console.log(result.user);
+                navigate(from, { replace: true })
+            })
+            .catch(error => console.error(error))
     }
     return (
 
@@ -108,6 +136,15 @@ const Login = () => {
                     </button>
                 </div>
             </form>
+            <div className='mx-auto w-2/6'>
+                <button
+                    onClick={loginWithGoogle}
+                    type="submit"
+                    className="ml-3 inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+                >
+                    Continue with google
+                </button>
+            </div>
         </div>
 
     );

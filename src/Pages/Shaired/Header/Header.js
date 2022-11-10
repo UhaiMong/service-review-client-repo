@@ -18,6 +18,9 @@ const Header = () => {
             <Link to='/' className="text-gray-500 transition hover:text-gray-500/75">Home</Link>
             <Link to='/review' className="text-gray-500 transition hover:text-gray-500/75">My review</Link>
             <Link to='/blog' className="text-gray-500 transition hover:text-gray-500/75">Blog</Link>
+            {
+                user?.email && <h1 className='hidden md:block'>{user?.email}</h1>
+            }
         </li>
     </>
     return (
