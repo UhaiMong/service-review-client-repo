@@ -23,7 +23,7 @@ const AddReview = () => {
         if (ratting < 0 && ratting > 5) {
             alert("please enter valid ratting value");
         }
-        fetch('http://localhost:5000/reviewers', {
+        fetch('https://service-review-server-psi.vercel.app/reviewers', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

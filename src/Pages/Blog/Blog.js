@@ -5,7 +5,7 @@ const Blog = () => {
         { no: 1, question: "What is the difference between SQL and NoSQL?", ans: "Ans: SQL databases are table-based and NoSQL databases are either key-value pairs, document-based.SQL databases defines and manipulates data based structured query language (SQL) and NoSQL database has dynamic schema for unstructured data."},
         { no: 2, question: "What is JWT and how does it work?", ans: "Ans: JWT is stand for JavaScript Web Token.It keeps secure Signin/verification. Client logs in with his/her credentials. Server generates a Jwt token at server side. After token generation, the server returns a token in response."},
         { no: 3, question: "What is the difference between JavaScript and NodeJs?", ans: "Ans: JavaScript is a programming language, which runs in web browsers. Whereas Node.js is an interpreter or running environment for JavaScript, which holds a lot of requiring libraries and all."},
-        { no: 4, question: "How does nodeJs handle multiple request at the same time?",ans: ""},
+        { no: 4, question: "How does nodeJs handle multiple request at the same time?", ans: "NodeJS receives multiple client requests and places them into EventQueue. NodeJS is built with the concept of event-driven architecture. NodeJS has its own EventLoop which is an infinite loop that receives requests and processes them"},
     ]
     const open = <>
         <svg

@@ -45,22 +45,22 @@ export const routers = createBrowserRouter([
             {
                 path: '/addreview/:id',
                 element: <Privaterout><AddReview></AddReview></Privaterout>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
+                loader: ({ params }) => fetch(`https://service-review-server-psi.vercel.app/services/${params.id}`),
             },
             {
                 path: '/update/:id',
                 element: <UpdateReview></UpdateReview>,
-                loader: ({ params }) => fetch(`http://localhost:5000/update/${params.id}`)
+                loader: ({ params }) => fetch(`https://service-review-server-psi.vercel.app/update/${params.id}`)
             },
             {
                 path: '/allservice',
                 element: <AllService></AllService>,
-                loader: () => fetch('http://localhost:5000/allservice'),
+                loader: () => fetch('https://service-review-server-psi.vercel.app/allservice'),
             },
             {
                 path: '/services/:id',
                 element: <ServiceDetailsById></ServiceDetailsById>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
+                loader: ({ params }) => fetch(`https://service-review-server-psi.vercel.app/services/${params.id}`),
             }
         ]
     },

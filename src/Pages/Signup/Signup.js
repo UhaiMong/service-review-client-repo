@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Authprovider/Authprovider';
+import SocialLogin from '../SocialLogin/SocialLogin';
+import { jwtAuthHandle } from '../Utilities/Utilities';
 
 const Signup = () => {
     const { createUser } = useContext(AuthContext);
@@ -13,8 +15,9 @@ const Signup = () => {
         createUser(email,password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
                 form.reset();
+                jwtAuthHandle(user)
+
             })
             .catch(error => {
                 console.log(error);
@@ -137,6 +140,7 @@ const Signup = () => {
                     </button>
                 </div>
             </form>
+            <SocialLogin></SocialLogin>
         </div>
     );
 };

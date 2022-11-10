@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const CustomerReview = ({ review, reviews }) => {
-    console.log("review",review, "reveiews",reviews);
-    const [reviewer,setReviewer] = useState()
+    console.log("review", review, "reveiews", reviews);
+    const [reviewer, setReviewer] = useState()
     const { _id, name, description, url } = review;
 
     const handleToDelete = review => {
         const agree = window.confirm(`Do you want to delete ${name} review?`);
         if (agree) {
-            fetch(`http://localhost:5000/review/${_id}`, {
+            fetch(`https://service-review-server-psi.vercel.app/review/${_id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
@@ -26,7 +26,7 @@ const CustomerReview = ({ review, reviews }) => {
     return (
         <div className="relative rounded-lg border border-gray-200 shadow-lg my-5">
             <button
-                onClick={()=>handleToDelete(review._id)}
+                onClick={() => handleToDelete(review._id)}
                 className="absolute -top-1 -right-1 rounded-full border border-gray-300 bg-gray-100 p-1"
             >
                 <span className="sr-only">Close</span>

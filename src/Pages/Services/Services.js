@@ -12,13 +12,13 @@ const Services = () => {
     const pages = Math.ceil(count / size);
 
     // useEffect(() => {
-    //     fetch('http://localhost:5000/services')
+    //     fetch('https://service-review-server-psi.vercel.app/services')
     //         .then(res => res.json())
     //         .then(data => setServices(data))
     // }, []);
 
     useEffect(() => {
-        const url = `http://localhost:5000/services?page=${page}&size=${size}`;
+        const url = `https://service-review-server-psi.vercel.app/services?page=${page}&size=${size}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -49,7 +49,7 @@ const Services = () => {
                             onClick={() => setPage(number)}
                             className={page === number && 'selectedPage'}
                         >
-                            {number+1}
+                            {number + 1}
                         </button>)
                     }
 

@@ -9,7 +9,7 @@ const Review = () => {
     const { user, logout } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviewers?email=${user?.email}`, {
+        fetch(`https://service-review-server-psi.vercel.app/reviewers?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('review-token')}`
             }
@@ -24,7 +24,7 @@ const Review = () => {
                 console.log(data);
                 setReviews(data)
             })
-    }, [user?.email,logout])
+    }, [user?.email, logout])
     return (
         <div>
             {
