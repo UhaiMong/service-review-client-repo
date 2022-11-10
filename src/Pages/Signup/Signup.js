@@ -1,13 +1,16 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Authprovider/Authprovider';
+import useTitle from '../Hook/useTitle';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { jwtAuthHandle } from '../Utilities/Utilities';
 
 const Signup = () => {
     const { createUser } = useContext(AuthContext);
+    useTitle('Register')
     const handleToSubmit = (event) => {
         event.preventDefault();
+
         const form = event.target;
         // const name = form.name.value;
         const email = form.email.value;

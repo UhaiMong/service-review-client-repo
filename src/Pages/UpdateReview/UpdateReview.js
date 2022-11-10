@@ -1,8 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Authprovider/Authprovider';
+import useTitle from '../Hook/useTitle';
 
 const UpdateReview = () => {
+    useTitle("Update Review")
     const { user } = useContext(AuthContext);
 
     const oldReview = useLoaderData();

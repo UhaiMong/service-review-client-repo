@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Authprovider/Authprovider';
+import useTitle from '../Hook/useTitle';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { jwtAuthHandle } from '../Utilities/Utilities';
 
 const Login = () => {
     const { login } = useContext(AuthContext);
+    useTitle('Login')
     const handleToLogin = event => {
         event.preventDefault();
         const form = event.target;

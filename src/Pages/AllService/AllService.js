@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import '../../Pages/ServicesCart/modelViewer.css'
+import useTitle from '../Hook/useTitle';
 
 const AllService = () => {
     const allServices = useLoaderData();
-
+useTitle("All Service")
     const [model, setModel] = useState(false);
     const [tempImg, setTemImg] = useState();
     const handleToView = (img) => {

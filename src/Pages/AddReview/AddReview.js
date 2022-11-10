@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Authprovider/Authprovider';
+import useTitle from '../Hook/useTitle';
 
 const AddReview = () => {
+    useTitle("Add Review")
     const { _id, name } = useLoaderData();
     const { user } = useContext(AuthContext);
     const handleToSubmitForm = event => {

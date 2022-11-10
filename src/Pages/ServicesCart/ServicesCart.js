@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../Hook/useTitle';
 import './modelViewer.css';
 
 const ServicesCart = ({ service }) => {
+    useTitle('Services')
     const { _id, img, name, price, ratting, description } = service;
     const [model, setModel] = useState(false);
     const [tempImg, setTemImg] = useState();

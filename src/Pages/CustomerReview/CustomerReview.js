@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../Hook/useTitle';
 
 const CustomerReview = ({ review, reviews }) => {
+    useTitle('Customer Review')
     console.log("review", review, "reveiews", reviews);
     const [reviewer, setReviewer] = useState()
     const { _id, name, description, url } = review;

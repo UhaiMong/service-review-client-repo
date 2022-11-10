@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../Hook/useTitle';
 
 const Blog = () => {
+    useTitle('Blog')
     const blogs = [
         { no: 1, question: "What is the difference between SQL and NoSQL?", ans: "Ans: SQL databases are table-based and NoSQL databases are either key-value pairs, document-based.SQL databases defines and manipulates data based structured query language (SQL) and NoSQL database has dynamic schema for unstructured data."},
         { no: 2, question: "What is JWT and how does it work?", ans: "Ans: JWT is stand for JavaScript Web Token.It keeps secure Signin/verification. Client logs in with his/her credentials. Server generates a Jwt token at server side. After token generation, the server returns a token in response."},

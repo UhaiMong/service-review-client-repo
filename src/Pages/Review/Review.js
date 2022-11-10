@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Authprovider/Authprovider';
 import CustomerReview from '../CustomerReview/CustomerReview';
+import useTitle from '../Hook/useTitle';
 
 const Review = () => {
+    useTitle('Review')
 
     const [reviews, setReviews] = useState([])
 
